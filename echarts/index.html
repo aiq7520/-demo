@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>首页(背景1)</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
+	<!-- <script type="text/javascript" src="js/echarts.min.js"></script> -->
+	<script type="text/javascript" src="http://180.76.107.212:8080/VIPage/js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/china.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/map-index.js"></script>
+	
+	<style type="text/css">
+	#mapcontainer{margin:0% 0%;width:100%;height:850px; position:absolute; }
+	#reportData{margin:0% 0%;width:28%;height:850px;position:relative;  left:0px; top:0px;  filter:alpha(opacity=50);}
+	#main{width: 100%;height:400px;}
+	#context{padding-left: 20%}
+	strong{
+		font-size:15px;
+	}
+	</style>
+	
+</head>
+<body>
+	<div id="mapcontainer" ></div>
+	<div id="reportData">
+	<div id="main" ></div>
+			<div id="context">
+			<strong>仓库个数</strong>
+			<span id="storageCount"></span>
+			<br>
+			<strong>总库容</strong>
+			<span id="totalCount"></span>
+			<br>
+			<strong>总库存</strong>
+			<span id="nowCount"></span>
+			<br>
+		</div>
+	</div>
+</body>
+</html>
+

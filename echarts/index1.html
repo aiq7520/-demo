@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>首页(背景1)</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/china.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/map-index.js"></script>
+	
+	<script type="text/javascript" src="js/jquery.vidbacking.js"></script>
+	<link rel="stylesheet" href="css/jquery.vidbacking.css" type="text/css">
+	<script type="text/javascript">
+		/* 全屏HTML5视频背景 */
+	  $(function(){
+	        $('body').vidbacking();
+	  });
+	</script>
+	<style type="text/css">
+		html, body {
+	        height: 100%;
+	        width: 100%;
+	        margin: 0;
+	        overflow: hidden;
+	    }
+	#mapcontainer{margin:0% 0%;width:100%;height:850px; position:absolute; }
+	#reportData{margin:10% 2%;width:10%;height:20%;position:relative; }
+	#context{border: 0px solid red;}
+	strong{
+		font-size:12px;
+		color : #000000;
+		display:block;
+		width:120px;
+		padding-top: 10px;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+		font-weight:600;
+	}
+	span{
+		font-size:18	px;
+		color : #ffffff;
+		font-weight:900;
+	}
+	</style>
+	
+</head>
+<body>
+	<video  autoplay  loop class="vidbacking">
+		<source src="img/Rallye.mp4" type="video/mp4">
+	</video>
+	<div id="mapcontainer" ></div>
+	<div id="reportData">
+			<div id="context">
+				<strong>仓库个数</strong>
+				<span id="storageCount"></span>
+				<br>
+				<strong>总库容</strong>
+				<span id="totalCount"></span>
+				<br>
+				<strong>总库存</strong>
+				<span id="nowCount"></span>
+				<br>
+				<strong>待入库车辆</strong>
+				<span id="">120251</span>
+				<br>
+				<strong>待出库车辆</strong>
+				<span id="">16524</span>
+				<br>
+				<strong>累计入库台数</strong>
+				<span id="">548952</span>
+				<br>
+				<strong>累计出库台数</strong>
+				<span id="">125441</span>
+				<br>
+			</div>
+	</div>
+</body>
+</html>
+
