@@ -7,27 +7,61 @@
 	<title>仓库界面</title>
 	<script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
 
-
+	<script type="text/javascript" src="js/polygonizr.js"></script>
 	
 
 	<script type="text/javascript">
 
+		//var carDivGaiLv =0.392;//放大缩小的比例
+		var carDivGaiLv =0.392;//放大缩小的比例
+		var imgHeight = imgWidth = 2000;//仓库图片的宽和高
 
+
+		var points = [
+			{top:199,left:(676),width:16,height:7},
+			{top:1730,left:(539),width:16,height:7}
+			];
 
 		$(function(){
-			var point ={top:199,left:676,width:16,height:7};
-			var carDivGaiLv = 0.5;
-			var divWidthHeight =2000;
-			var carBigDivGaiLvHeight = (divWidthHeight);
-			var carBigDivGaiLvWidth = (divWidthHeight);
-			var carTop = point.top;
-			var carLeft =point.left;
-			var carWidth =point.width;
-			var carHeight =point.height;
+			$('#site-landing').polygonizr();
+			var carBigDivGaiLvHeight =imgHeight*carDivGaiLv;//装仓库图片 div的高
+			var carBigDivGaiLvWidth =imgWidth*carDivGaiLv;//装仓库图片 div的宽
+			$("#background").css({
+				width:carBigDivGaiLvWidth,
+				height:carBigDivGaiLvHeight,
+				position:'absolute',
+				});//给装仓库图片 div设置样式
 
-			$("#background").css({width:carBigDivGaiLvWidth,height:carBigDivGaiLvHeight})
-			$(".car").css({width:carWidth,height:carHeight,top:carTop,left:carLeft})
+			// 			//画摄像头
+			// $("#carBigDiv").append($("<div class='radius'>"));
+			// 		$("#carBigDiv").css({
+			// 		'position':'absolute',
+			// 		'left':346*carDivGaiLv,
+			// 		'top':972*carDivGaiLv,
+			// 		'height':20*carDivGaiLv,
+			// 		'width':20*carDivGaiLv,
+        	// 		'background-color':'#09f',
+			// 		'border-radius': '50%',
+			// 		'margin':'0 0',
+        	// 		'padding': '0 0'
+			// 	})
+	
 
+
+			$.each(points,function(i,point){
+				var $_car = $("<div class='grid'></div>");
+				$_car.css({
+					'position':'absolute',
+					'left':point.left*carDivGaiLv,
+					'top':point.top*carDivGaiLv,
+					'background':"red",
+					'height':point.height*carDivGaiLv,
+					'width':point.width*carDivGaiLv,
+				}).click(function(){
+					alert("你点了我,我的位置是 "+$(this).css("left")+"   "+$(this).css("top"));
+				});
+				$("#carBigDiv").append($_car);
+			});
 		})
 	</script>
 	<style type="text/css">
@@ -39,29 +73,25 @@
         margin: 0;
         padding: 0;
     }
+	#site-landing { 
+    	margin: 0 0;
+        position:absolute;
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(to top, #137474 0%, #330867 100%);
+    }
     #background{
     	 position: absolute;
-    	 /* width: 400px;
-         height: 400px; */
          border: 1px solid red;
          background:url(img/qingfangku.png);
          background-size:cover;
     }
-	.car{
-		/* width: 16px;
-		height: 7px; */
-		background-color: red;
-		position: absolute;
-		/* top:199px;
-		left:676px; */
-	} 
-   
 	</style>
 </head>
 <body>
+	<div id="site-landing"></div>
 	<div id="background">
 		<div id="carBigDiv">
-			<div class="car"></div>
 		</div>
 	</div>
 </body>
