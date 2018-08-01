@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>仓库界面</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
+
+	<script type="text/javascript" src="js/polygonizr.js"></script>
+	
+
+	<script type="text/javascript">
+
+		//var carDivGaiLv =0.392;//放大缩小的比例
+		var carDivGaiLv =0.4;//放大缩小的比例
+		var imgHeight = imgWidth = 2000;//仓库图片的宽和高
+
+
+		var points = [
+			{top:199,left:(676),width:16,height:7},
+			{top:1730,left:(539),width:16,height:7}
+			];
+
+		$(function(){
+			
+			$('#site-landing').polygonizr();
+			var carBigDivGaiLvHeight =imgHeight*carDivGaiLv;//装仓库图片 div的高
+			var carBigDivGaiLvWidth =imgWidth*carDivGaiLv;//装仓库图片 div的宽
+			$("#background").css({
+				width:carBigDivGaiLvWidth,
+				height:carBigDivGaiLvHeight,
+				//position:'absolute',
+				});//给装仓库图片 div设置样式
+				console.log(carBigDivGaiLvWidth)
+			$("#datas").css({
+				width:700,
+				height:1100,
+				//position:'absolute',
+				border:'1px solid red'
+			});
+
+			// 			//画摄像头
+			// $("#carBigDiv").append($("<div class='radius'>"));
+			// 		$("#carBigDiv").css({
+			// 		'position':'absolute',
+			// 		'left':346*carDivGaiLv,
+			// 		'top':972*carDivGaiLv,
+			// 		'height':20*carDivGaiLv,
+			// 		'width':20*carDivGaiLv,
+        	// 		'background-color':'#09f',
+			// 		'border-radius': '50%',
+			// 		'margin':'0 0',
+        	// 		'padding': '0 0'
+			// 	})
+	
+
+
+			$.each(points,function(i,point){
+				var $_car = $("<div class='grid'></div>");
+				$_car.css({
+					'position':'absolute',
+					'left':point.left*carDivGaiLv,
+					'top':point.top*carDivGaiLv,
+					'background':"red",
+					'height':point.height*carDivGaiLv,
+					'width':point.width*carDivGaiLv,
+				}).click(function(){
+					alert("你点了我,我的位置是 "+$(this).css("left")+"   "+$(this).css("top"));
+				});
+				$("#carBigDiv").append($_car);
+			});
+		})
+	</script>
+	<style type="text/css">
+	*{margin: 0;padding: 0;}
+	#site-landing { 
+    	margin: 0 0;
+        position:absolute;
+        height: 2000px;
+        width:2000px;
+        background-image: linear-gradient(to top, #137474 0%, #330867 100%);
+    }
+    #background{
+		 position: absolute; 
+		 left:0px;
+         border: 1px solid red;
+		 background-color: black;
+         background:url(img/qingfangku.png);
+         background-size:cover;
+    }
+	 #reportData{margin:10% 2%;width:10%;height:20%;position:relative; }
+	 strong{
+		font-size:12px;
+		color : #347e88;
+		display:block;
+		width:120px;
+		padding-top: 10px;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+		font-weight:600;
+	}
+	span{
+		font-size:18	px;
+		color : #ffffff;
+		font-weight:900;
+	} 
+	</style>
+</head>
+<body>
+	<div id="site-landing"></div>
+	<div id="background">
+		<div id="carBigDiv">
+		</div>
+	</div>
+	 <div id="datas">
+		<div id="reportData">
+			<div id="context">
+				<strong>库存台数</strong>
+				<span id="storageCount">1111</span>
+				<br>
+				<strong>待入库车辆</strong>
+				<span id="">120251</span>
+				<br>
+				<strong>待备车车辆</strong>
+				<span id="nowCount">3333</span>
+				<br>
+				<strong>待出库车辆</strong>
+				<span id="">16524</span>
+				<br>
+				<strong>累计入库台数</strong>
+				<span id="">548952</span>
+				<br>
+				<strong>累计出库台数</strong>
+				<span id="">125441</span>
+				<br>
+			</div>
+		</div>
+	</div> 
+</body>
+</html>
