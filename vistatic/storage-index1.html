@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>仓库界面</title>
+	<link rel="stylesheet" href="css/stylestorage.css" />
+	<script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/echarts-container-1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+		var contextWidth = $("#context").width();//网页内容的宽度
+		var imgHeight = imgWidth = 2000;//仓库图片实际的宽和高
+		var carDivGaiLv =contextWidth/imgWidth>1?1:contextWidth/imgWidth;//放大缩小的比例
+		var leftContextWidth = (contextWidth-imgHeight);
+		$("#rightContext").css({left:leftContextWidth});
+		var points = [
+			{top:199,left:(676),width:16,height:7},
+			{top:1730,left:(539),width:16,height:7}
+			];
+
+			var carBigDivGaiLvHeight =imgHeight*carDivGaiLv;//装仓库图片 div的高
+			var carBigDivGaiLvWidth =imgWidth*carDivGaiLv;//装仓库图片 div的宽
+			$("#storageimgdiv").css({
+				width:carBigDivGaiLvWidth,
+				height:carBigDivGaiLvHeight,
+				});//给装仓库图片 div设置样式
+				
+
+			// 			//画摄像头
+			// $("#carBigDiv").append($("<div class='radius'>"));
+			// 		$("#carBigDiv").css({
+			// 		'position':'absolute',
+			// 		'left':346*carDivGaiLv,
+			// 		'top':972*carDivGaiLv,
+			// 		'height':20*carDivGaiLv,
+			// 		'width':20*carDivGaiLv,
+        	// 		'background-color':'#09f',
+			// 		'border-radius': '50%',
+			// 		'margin':'0 0',
+        	// 		'padding': '0 0'
+			// 	})
+	
+
+
+			$.each(points,function(i,point){
+				var $_car = $("<div class='grid'></div>");
+				$_car.css({
+					'position':'absolute',
+					'left':point.left*carDivGaiLv,
+					'top':point.top*carDivGaiLv,
+					'background':['#dd0c17','#09ec14','#d3f800'][i%3],
+					'height':point.height*carDivGaiLv,
+					'width':point.width*carDivGaiLv,
+				}).click(function(){
+					alert("你点了我,我的位置是 "+$(this).css("left")+"   "+$(this).css("top"));
+				});
+				$("#carBigDiv").append($_car);
+			});
+		})
+	</script>
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+	<!-- <div id="site-landing"></div> -->
+	<div id="context">
+			<div id="topContext">
+				<span id="login">海印库车辆库位管理</span><!--标题-->
+				<div>
+					<!--<div>库存台数<span>100000</span></div>
+					<div>待入库车辆<span>100000</span</div>
+					<div>待备车车辆<span>100000</span</div>
+					<div>待出库车辆<span>100000</span</div>
+					<div>累计入库台数<span>100000</span</div>
+					<div>累计出库台数<span>100000</span</div>-->
+				</div>
+			</div>
+			<div id="centextContext">
+				<div id="storageimgdiv">
+						<div class="pie" style="background-color:#dd0c17">常规库</div>
+						<div class="pie" style="background-color:#09ec14" >待备车</div>
+						<div class="pie" style="background-color:#d3f800">待出库</div>
+					<div id="carBigDiv">
+					</div>
+				</div>
+				<div id="rightContext">
+						<div id="echarts-1" class="echarts-class">
+								<div id="container-1" style="height: 100%"></div>
+							</div>
+							<div id="echarts-2" class="echarts-class">
+									<div id="container-2" ></div>
+							</div>
+							<div id="echarts-3" class="echarts-class">
+									<div id="container-2"></div>
+							</div>
+				</div>			
+			</div>
+			<div id="footContext">
+			</div>
+	</div>
+</body>
+</html>
