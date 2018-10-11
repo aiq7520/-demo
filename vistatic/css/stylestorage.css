@@ -3,7 +3,20 @@
 	font-size: 100%;
 	font-style: initial;
 }
-
+ul li{
+	list-style: none;
+}
+.clearfix::after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.fl-lt{
+	float: left;
+}
+.fl-rt{
+	float: right;
+}
 #context{
 	width: 5000px;height: 3000px;
 	background-image: linear-gradient(to top, #137474 10%, #330867 100%);
@@ -12,16 +25,56 @@
 
 #storageimgdiv{  /*仓库图片*/
 	 position: absolute; 
-	 left:0px;
+	 left:50px;
 	 /* border: 1px solid red; */
 	 background-color: black;
-	 background:url(../img/qingfangku.png);
+	 background:url(../img/haiyinku.png); 
+	 /* background:url(../img/haiyinku.png); */
+	 /* background:url(../img/qingfangku.png); */
 	 background-size:cover;
+	 border:1px solid #fff;
 }
 #topContext{
 	height: 8%;
 	width:100%;
+	position:relative;
 }
+#topContext #login{
+	position:absolute;
+	top:50%;
+	left: 100px;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	font-size: 100px;
+}
+#topContext .topContext-center{
+	position:absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+}
+#topContext .topContext-center ul li{
+	display: inline-block;
+	margin:0 50px;
+	text-align: center;
+	font-size: 48px;
+}
+#topContext .topContext-center ul li span{
+	color:red;
+	margin-left: 10px;
+	display:block;
+}
+/*#topContext .topContext-center div{
+	display: inline-block;
+	margin:0 10px;
+}*/
 #centextContext{
 	/* border: 1px solid rgb(0, 255, 13); */
 	height: 67%;
@@ -42,14 +95,52 @@
 	color: black;
 }
 .echarts-class{
-	border: 1px solid rgb(0, 17, 255);
+	-webkit-box-shadow:inset 0px 0px 30px #065EAF;
+    -moz-box-shadow:inset 0px 0px 30px #065EAF;
+    box-shadow:inset 0px 0px 30px #065EAF;
 }
 #echarts-1{
-	height: 50%;
+	/*height: 50%;*/
+	height: 975px;
+	margin-bottom: 50px;
 }
 #echarts-2{
-	height: 50%;
+	/*height: 50%;*/
+	height: 975px;
+	width: 58%;
 }
 #echarts-3{
-	height: 50%;
+	/*height: 50%;*/
+	height: 975px;
+	width:38%;
+}
+
+
+/*20181011*/
+#rightContext{
+    width: 2850px;
+    height: 2000px;
+    margin-left: 2100px;
+}
+#bottomContext{
+	width: 5000px;
+	margin-top: 50px;
+	text-align: center;
+}
+#bottomContext ul{
+	padding:0 50px;
+}
+#bottomContext ul li{
+	float:left;
+	width: 800px;
+	height: 680px;
+	-webkit-box-shadow:inset 0px 0px 30px #065EAF;
+    -moz-box-shadow:inset 0px 0px 30px #065EAF;
+    box-shadow:inset 0px 0px 30px #065EAF;
+    box-sizing: border-box;
+    margin-right: 200px;
+    
+}
+#bottomContext ul li:last-child{
+	margin-right: 0;
 }
